@@ -1,0 +1,71 @@
+
+<app-header></app-header>
+  <div class="card w-50 mx-auto mt-20 text-primary">
+    <h3 class="card-headet text-center"> PLEASE ENTER THE FORM</h3>
+    <div class="card body">
+      <form [formGroup]="regform">
+        <div class="form-group">
+          <label for="container-fluid"><b> USERNAME:</b> </label>
+          <input type="text" formControlName="Uname" class="form-control w-70">
+          <div *ngIf="regform.controls['Uname'].touched && regform.controls['Uname']?.['errors']?.['required']" class="dinesh">
+            <div *ngIf="regform.controls['Uname']?.['errors']?.['required']" class="dinesh"> USER NAME IS REQUIRED</div>
+          </div>
+          <div *ngIf="regform.controls['Uname']?.['errors']?.['minlength']" class="dinesh"> user must enter 3chars</div>
+        </div>
+        <label for=""> <b> EMAIL:</b></label>
+        <input type="email" formControlName="email" class="form-control w-70">
+        <div *ngIf="regform.controls['email'].touched && regform.controls['email']?.['errors']?.['required']" class="dinesh">
+          <div *ngIf="regform.controls['email']?.['errors']?.['required']" class="dinesh"> EMAIL IS REQUIRED</div>
+        </div>
+        <div *ngIf="regform.controls['email']?.['errors']?.['email']" class="dinesh"> ENTER VALID EMAIL</div>
+        <label for=""> <b>PASSWORD</b> </label>
+        <input type="password" formControlName="password" class="form-control w-70">
+        <div *ngIf="regform.controls['password'].touched && regform.controls['password']?.['errors']" class="dinesh">
+          <div *ngIf="regform.controls['password']?.['errors']?.['required']" class="dinesh"> PASSWORD IS REQUIRED</div>
+        </div>
+        <div *ngIf="regform.controls['password']?.['errors']?.['minlength']" class="dinesh"> PASSWORD must enter 8chars
+        </div>
+        <label for=""> <b>CONFORM PASSWRD </b></label>
+        <input type="cpassword" formControlName="cpassword" class="form-control w-70">
+        <div *ngIf="regform.controls['cpassword'].touched && regform.controls['cpassword']?.['errors']" class="dinesh">
+          <div *ngIf="regform.controls['cpassword']?.['errors']?.['required']" class="dinesh"> conform PASSWORD IS
+            REQUIRED</div>
+        </div>
+        <div *ngIf="regform['errors']?.['passwordmatch']" class="dinesh"> PASSWORD NOT MATCHED</div>
+  
+        <label> <b><u> GENDER</u> </b></label>
+        <label>
+          <input type="radio" name="gender" value="boy" formControlName="gender">MALE
+        </label>
+        <label>
+          <input type="radio" name="gender" value="girl" formControlName="gender">FEMALE
+        </label>
+        <div>
+          <label>
+            <input type="checkbox" formControlName="subcribe" class="mt-4"> <i> <b>  SUBCRIBE</b> </i>
+            
+  
+          </label>
+    
+        
+          </div>
+          
+       
+     
+        
+       <button class="btn btn-primary mt-5" (click)="show()">CLICK</button>
+       
+      </form>
+      </div>
+      </div>
+      
+      <div>
+        <app-footer></app-footer>
+      </div>
+      
+      
+      
+      
+  
+
+
